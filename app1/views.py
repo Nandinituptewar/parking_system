@@ -105,7 +105,6 @@ class forget_password(TemplateView):
                 messages.success(request, 'Entered Plate number is not acceptable')
             return render(request, "app1/forget_id.html" )
 
-
 from rest_framework.authentication import TokenAuthentication
 
 class PersonViewSet(viewsets.ModelViewSet):
@@ -113,3 +112,34 @@ class PersonViewSet(viewsets.ModelViewSet):
     queryset = Person.objects.all().order_by('id')
     authentication_classes = (TokenAuthentication,)
 
+
+from django.views.generic import TemplateView
+from chartjs.views.lines import BaseLineChartView
+
+
+class LineChartJSONView(BaseLineChartView):
+    def get_labels(self):
+        """Return 7 labels for the x-axis."""
+        return ["person"]
+
+
+    def get_providers(self):
+        """Return names of datasets."""
+        return ["Central"]
+
+    def get_data(self):
+        """Return 3 datasets to plot."""
+
+        st=Person.objects.all()
+        lst1=[]
+        for i in st:
+            lst1.append(i.time_1)
+
+        lst=[[75, 44],
+                [41, 92],
+                [0, 21]]
+        return lst1
+
+
+line_chart = TemplateView.as_view(template_name='app1/charts.html')
+line_chart_json = LineChartJSONView.as_view()

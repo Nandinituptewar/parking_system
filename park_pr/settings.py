@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'api_practice',
     'rest_framework',
     'rest_framework.authtoken',
+    'chartjs',
 ]
 
 MIDDLEWARE = [
