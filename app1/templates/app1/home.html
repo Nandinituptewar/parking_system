@@ -1,0 +1,37 @@
+{% extends "app1/base.html" %}
+
+{% block title %}
+       <title>Home page</title>
+{% endblock %}
+
+{% block content%}
+    <br>
+    <div class="card text-center">
+
+         <div class="card-header">Start Parking</div>
+         <div class="card-body">
+           <h5 class="card-title">If you want to park your vehicle here then click to below option </h5>
+           <p class="card-text">We assure that our service will provide all security to your vehicles.</p>
+           <a href="{% url 'form-page' %}" class="btn btn-primary">Start parking</a>
+         </div>
+         <div class="card-footer text-muted">
+          only one click and start parking
+         </div>
+
+    </div>
+<br>
+     <div class="card text-center">
+
+         <div class="card-header">Finish Parking</div>
+         <div class="card-body">
+           <h5 class="card-title">If you want to finish the parking then click to below option </h5>
+           <p class="card-text">We assure that our service have provided all security to your vehicles.</p>
+           <a href="{% url 'parking-finish' %}" class="btn btn-success">Finish parking</a>
+         </div>
+         <div class="card-footer text-muted">
+          only one click and finish parking
+         </div>
+
+    </div>
+
+{% endblock %}

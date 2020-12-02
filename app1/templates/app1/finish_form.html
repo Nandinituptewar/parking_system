@@ -1,0 +1,18 @@
+{% extends "app1/base.html" %}
+
+{% block title %}
+       <title>Finish Entry</title>
+{% endblock %}
+
+{% block content%}
+
+        {% for message in messages %}
+
+            <h3>{{message}}</h3>
+
+        {% endfor %}
+
+          <h4>Your ID is <h2>{{data.id}}</h2> When you Finish the parking  then Enter this Id. </h4>
+
+
+{% endblock %}

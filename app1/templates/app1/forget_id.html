@@ -1,0 +1,32 @@
+{% extends "app1/base.html" %}
+
+{% block title %}
+       <title> Forget password </title>
+{% endblock  %}
+
+{% block content %}
+
+        <form  action="{% url 'forget_password' %}" method="post">
+
+          {% csrf_token %}
+            <div class="form-group">
+                <label for="exampleFormControlFile1">Enter Plate number</label>
+                <input type="text" class="form-control" id="exampleFormControlFile1" name="uniq_id">
+            </div>
+
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            </div>
+
+          <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+
+        </form>
+
+{% for message in messages %}
+        <h1>{{message}}</h1>
+
+{%endfor%}
+
+
+{% endblock  %}
